@@ -36,7 +36,6 @@ design.addEventListener("change", (e) => {
 const register = document.getElementById("activities");
 const totalElement = document.getElementById("activities-cost");
 let totalCost = 0;
-
 register.addEventListener("change", (e) => {
     let dataCost = e.target.getAttribute("data-cost");
     dataCost = +dataCost;
@@ -46,6 +45,28 @@ register.addEventListener("change", (e) => {
         totalCost -= dataCost;
     }
     totalElement.innerHTML = `Total: $${totalCost}`;
-    console.log(totalElement.textContent);
 });
 
+const paySelect = document.getElementById("payment");
+const creditCard = document.getElementById("credit-card");
+const payPal = document.getElementById("paypal");
+const bitCoin = document.getElementById("bitcoin");
+payPal.hidden = true;
+bitCoin.hidden = true;
+paySelect.children[1].selected = true;
+
+paySelect.addEventListener("change", (e) => {
+    if (e.target.value === "paypal") {
+        payPal.hidden = false;
+        creditCard.hidden = true;
+        bitCoin.hidden = true;
+    } else if (e.target.value === "bitcoin") {
+        bitCoin.hidden = false;
+        payPal.hidden = true;
+        creditCard.hidden = true;
+    } else {
+        creditCard.hidden = false;
+        payPal.hidden = true;
+        bitCoin.hidden = true;
+    }
+});
