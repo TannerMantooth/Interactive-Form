@@ -23,7 +23,6 @@ design.addEventListener("change", (e) => {
     for (let i = 0; i <colorOptions.length; i++) {
         const eventValue = design.value;
         const dataTheme = colorOptions[i].getAttribute("data-theme");
-        console.log(eventValue);
         if (eventValue === dataTheme) {
             colorOptions[i].hidden = false;
             colorOptions[i].setAttribute("selected", "true");
@@ -33,3 +32,20 @@ design.addEventListener("change", (e) => {
         }
     }
 });
+
+const register = document.getElementById("activities");
+const totalElement = document.getElementById("activities-cost");
+let totalCost = 0;
+
+register.addEventListener("change", (e) => {
+    let dataCost = e.target.getAttribute("data-cost");
+    dataCost = +dataCost;
+    if (e.target.checked === true) {
+        totalCost += dataCost;
+    } else if (e.target.checked === false) {
+        totalCost -= dataCost;
+    }
+    totalElement.innerHTML = `Total: $${totalCost}`;
+    console.log(totalElement.textContent);
+});
+
