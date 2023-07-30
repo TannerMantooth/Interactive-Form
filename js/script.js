@@ -1,5 +1,5 @@
-const inputFocus = document.getElementById("name");
-inputFocus.focus();
+const nameField = document.getElementById("name");
+nameField.focus();
 
 const jobDisplay = document.getElementById("other-job-role");
 jobDisplay.style.display = "none";
@@ -78,7 +78,7 @@ const cvv = document.getElementById("cvv");
 const webForm = document.querySelector("form");
 
 webForm.addEventListener("submit", (e) => {
-    const nameValue = inputFocus.value;
+    const nameValue = nameField.value;
     const nameTest = /\D/;
     const validName = nameTest.test(nameValue);
     if (validName === false) {
@@ -116,3 +116,13 @@ webForm.addEventListener("submit", (e) => {
         }
     }
 });
+
+const activitiesCheckboxes = document.querySelectorAll('input[type=checkbox]');
+for (let i = 0; i < activitiesCheckboxes.length; i++) {
+    activitiesCheckboxes[i].addEventListener("focus", (e) => {
+        activitiesCheckboxes[i].parentElement.className = "focus";
+    })
+    activitiesCheckboxes[i].addEventListener("blur", (e) => {
+        activitiesCheckboxes[i].parentElement.classList.remove("focus");
+    })
+}
