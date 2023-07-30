@@ -70,3 +70,49 @@ paySelect.addEventListener("change", (e) => {
         bitCoin.hidden = true;
     }
 });
+
+const email = document.getElementById("email");
+const cardNumber = document.getElementById("cc-num");
+const zipCode = document.getElementById("zip");
+const cvv = document.getElementById("cvv");
+const webForm = document.querySelector("form");
+
+webForm.addEventListener("submit", (e) => {
+    const nameValue = inputFocus.value;
+    const nameTest = /\D/;
+    const validName = nameTest.test(nameValue);
+    if (validName === false) {
+        e.preventDefault();
+    }
+
+    const emailValue = email.value;
+    const emailTest = /^[a-z0-9_]+@[a-z]+\.[a-z]{2,3}$/;
+    const validEmail = emailTest.test(emailValue);
+    if (validEmail === false) {
+        e.preventDefault();
+    }
+    
+    if (totalCost === 0) {
+        e.preventDefault();
+    }
+
+    const cardNumberValue = cardNumber.value;
+    const cvvValue = cvv.value;
+    const zipValue = zipCode.value;
+    const cardTest = /\b\d{13,16}\b/;
+    const cvvTest = /\b\d{3}\b/;
+    const zipTest = /\b\d{5}\b/;
+    const validCard = cardTest.test(cardNumberValue);
+    const validCvv = cvvTest.test(cvvValue);
+    const validZip = zipTest.test(zipValue);
+
+    if (creditCard.hidden === false) {
+        if (validCard === false) {
+            e.preventDefault();
+        } else if (validCvv === false) {
+            e.preventDefault();
+        } else if (validZip === false) {
+            e.preventDefault();
+        }
+    }
+});
