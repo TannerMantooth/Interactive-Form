@@ -30,10 +30,10 @@ design.addEventListener("change", (e) => {
         const dataTheme = colorOptions[i].getAttribute("data-theme");
         if (eventValue === dataTheme) {
             colorOptions[i].hidden = false;
-            colorOptions[i].setAttribute("selected", "true");
+            colorOptions[i].selected = true;
         } else {
             colorOptions[i].hidden = true;
-            colorOptions[i].setAttribute("selected", "false");
+            colorOptions[i].selected = false;
         }
     }
 });
@@ -101,11 +101,11 @@ webForm.addEventListener("submit", (e) => {
         e.preventDefault();
         nameField.parentElement.classList.add('not-valid');
         nameField.parentElement.classList.remove('valid');
-        nameField.parentElement.lastElementChild.display = "block";
+        nameField.parentElement.lastElementChild.style.display = "inline";
     } else {
         nameField.parentElement.classList.add('valid');
         nameField.parentElement.classList.remove('not-valid');
-        nameField.parentElement.lastElementChild.display = "none";
+        nameField.parentElement.lastElementChild.style.display = "none";
     }
 
     //Creating validation testing for email
@@ -116,11 +116,11 @@ webForm.addEventListener("submit", (e) => {
         e.preventDefault();
         email.parentElement.classList.add('not-valid');
         email.parentElement.classList.remove('valid');
-        email.parentElement.lastElementChild.display = "block";
+        email.parentElement.lastElementChild.style.display = "inline";
     } else {
         email.parentElement.classList.add('valid');
         email.parentElement.classList.remove('not-valid');
-        email.parentElement.lastElementChild.display = "none";
+        email.parentElement.lastElementChild.style.display = "none";
     }
     
     //Creating validation testing for activies section
@@ -128,11 +128,11 @@ webForm.addEventListener("submit", (e) => {
         e.preventDefault();
         activities.classList.add('not-valid');
         activities.classList.remove('valid');
-        activities.lastElementChild.display = "block";
+        activities.lastElementChild.style.display = "inline";
     } else {
         activities.classList.add('valid');
         activities.classList.remove('not-valid');
-        activities.lastElementChild.display = "none";
+        activities.lastElementChild.style.display = "none";
     }
 
     //Creating validation testing for Credit Card information
@@ -151,33 +151,33 @@ webForm.addEventListener("submit", (e) => {
             e.preventDefault();
             cardNumber.parentElement.classList.add('not-valid');
             cardNumber.parentElement.classList.remove('valid');
-            cardNumber.parentElement.lastElementChild.display = "block";
+            cardNumber.parentElement.lastElementChild.style.display = "inline";
         } else {
             cardNumber.parentElement.classList.add('valid');
             cardNumber.parentElement.classList.remove('not-valid');
-            cardNumber.parentElement.lastElementChild.display = "none";
+            cardNumber.parentElement.lastElementChild.style.display = "none";
         }
 
         if (validCvv === false) {
             e.preventDefault();
             cvv.parentElement.classList.add('not-valid');
             cvv.parentElement.classList.remove('valid');
-            cvv.parentElement.lastElementChild.display = "block";
+            cvv.parentElement.lastElementChild.style.display = "inline";
         } else {
             cvv.parentElement.classList.add('valid');
             cvv.parentElement.classList.remove('not-valid');
-            cvv.parentElement.lastElementChild.display = "none";
+            cvv.parentElement.lastElementChild.style.display = "none";
         }
         
         if (validZip === false) {
             e.preventDefault();
             zipCode.parentElement.classList.add('not-valid');
             zipCode.parentElement.classList.remove('valid');
-            zipCode.parentElement.lastElementChild.display = "block";
+            zipCode.parentElement.lastElementChild.style.display = "inline";
         } else {
             zipCode.parentElement.classList.add('valid');
             zipCode.parentElement.classList.remove('not-valid');
-            zipCode.parentElement.lastElementChild.display = "none";
+            zipCode.parentElement.lastElementChild.style.display = "none";
         }
     }
 });
